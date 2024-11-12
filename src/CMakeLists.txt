@@ -277,20 +277,11 @@ target_link_libraries(cryptominisat5
     LINK_PUBLIC ${cadical}
 )
 
-if (NOT WIN32)
-    set_target_properties(cryptominisat5 PROPERTIES
-        PUBLIC_HEADER "${cryptominisat5_public_headers}"
-        VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-        SOVERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-    )
-else()
-    set_target_properties(cryptominisat5 PROPERTIES
-        OUTPUT_NAME cryptominisat5win
-        PUBLIC_HEADER "${cryptominisat5_public_headers}"
-        VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-        SOVERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-    )
-endif()
+set_target_properties(cryptominisat5 PROPERTIES
+    PUBLIC_HEADER "${cryptominisat5_public_headers}"
+    VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
+    SOVERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
+)
 
 if (IPASIR)
     add_library(ipasircryptominisat5
