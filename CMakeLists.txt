@@ -120,6 +120,8 @@ if (STATICCOMPILE)
 #     endif()
 endif()
 
+option(BINARY "Build the binary" ON)
+
 option(EMSCRIPTEN "Generate only emscripten JS" OFF)
 if (EMSCRIPTEN)
     set(BUILD_SHARED_LIBS ON)

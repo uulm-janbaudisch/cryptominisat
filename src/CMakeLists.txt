@@ -346,12 +346,14 @@ install(TARGETS cryptominisat5
     PUBLIC_HEADER DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/cryptominisat5"
 )
 
-add_executable(cryptominisat5-bin
-    main.cpp
-    main_common.cpp
-    main_exe.cpp
-    signalcode.cpp
+if(BINARY)
+    add_executable(cryptominisat5-bin
+        main.cpp
+        main_common.cpp
+        main_exe.cpp
+        signalcode.cpp
 )
+endif()
 
 if (EMSCRIPTEN)
     add_executable(cryptominisat5-bin
@@ -406,6 +408,7 @@ if (MPI_FOUND)
     SET(CPACK_PACKAGE_EXECUTABLES "cryptominisat5_mpi")
 endif()
 
+if(BINARY)
 set_target_properties(cryptominisat5-bin PROPERTIES
     OUTPUT_NAME cryptominisat5
     RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}
@@ -418,6 +421,8 @@ install(TARGETS cryptominisat5-bin
     # EXPORT ${CRYPTOMINISAT5_EXPORT_NAME}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
+endif()
+
 SET(CPACK_PACKAGE_EXECUTABLES "cryptominisat5")
 
 if (FEEDBACKFUZZ)
