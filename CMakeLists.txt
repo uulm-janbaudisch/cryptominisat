@@ -537,11 +537,11 @@ endif()
 
 
 find_library(cadiback
-    PATHS ${CMAKE_CURRENT_SOURCE_DIR}/../cadiback/
+    PATHS $ENV{CADIBACK_LIB_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/../cadiback/
     NAMES cadiback
     REQUIRED)
 find_library(cadical
-    PATHS ${CMAKE_CURRENT_SOURCE_DIR}/../cadical/build/
+    PATHS $ENV{CADICAL_LIB_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/../cadical/build/
     NAMES cadical
     REQUIRED)
 
