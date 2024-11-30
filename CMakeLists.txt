@@ -99,6 +99,7 @@ set(CMAKE_CXX_STANDARD 17)
 enable_language( CXX )
 include (GNUInstallDirs)
 include (GenerateExportHeader)
+include (FindPkgConfig)
 
 # contains some library search cmake scripts
 SET(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
